@@ -1,3 +1,7 @@
+<h1>Installation</h1>
+<h5>Simply clone the theme and plugin repositories into their respective theme and plugin directories. Make sure (ACF) is pre-installed.</h5>
+
+
 #  Lh Theme #
 
 Requires at least: 5.2
