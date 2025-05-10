@@ -1,0 +1,13 @@
+@import '../../assets/build/css/import/functions';
+@import '../../assets/build/css/import/settings';
+
+.lh-acf-block.lh-acf-block-title {
+    .lh-title-block{
+        background-color: $primary;
+        margin: 40px 0 !important;
+
+        @include media-min-width($media-query-desk-sm) {
+            margin: 60px 0 !important
+        }
+    }
+}

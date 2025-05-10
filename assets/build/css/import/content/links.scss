@@ -1,0 +1,56 @@
+.lh-link {
+    position:           relative;
+    display:            inline-flex;
+    flex-direction:     row;
+    flex-wrap:          nowrap;
+    align-items:        center;
+    justify-content:    flex-start;
+    gap:                8px;
+    overflow:           hidden;
+    padding:            6px 16px;
+    border:             0 none;
+    border-radius:      0;
+    appearance:         none;
+    background:         transparent;
+    color:              $sol-orange-500-base;
+    cursor:             pointer;
+    text-decoration:    none;
+    transition:         color $animation-length, background $animation-length, transform $quick-animation-length;
+
+    &:hover {
+        color:              $sol-orange-400;
+        text-decoration:    none;
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+        color:              $sol-orange-500-base;
+        text-decoration:    none;
+    }
+
+    &.arrow-right {
+        &::after {
+            content:                ' ';
+            display:                inline-block;
+            width:                  20px;
+            height:                 20px;
+            background-color:       transparent;
+            background-position:    center right;
+            background-repeat:      no-repeat;
+            background-size:        27.33px 11.67px;
+            overflow:               hidden;
+            transition:             color $animation-length, background $animation-length, width $animation-length, transform $quick-animation-length;
+
+            @include lh-arrow-long-right(lh-encode-color($sol-orange-500-base));
+        }
+
+        &:hover {
+            &::after {
+                width: 27px;
+
+                @include lh-arrow-long-right(lh-encode-color($sol-orange-400));
+            }
+        }
+    }
+}

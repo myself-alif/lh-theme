@@ -1,0 +1,100 @@
+@use '../settings'  as *;
+
+.lh-fe {
+    .menu {
+        list-style: none;
+
+        .menu-item {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.lh-mobile-back {
+    display: block;
+    
+    @include media-min-width($media-query-tablet) {
+        display: none;
+    }
+}
+
+#lh-desk-logo {
+    display: none;
+    
+    @include media-min-width($media-query-tablet) {
+        display: block;
+    }
+}
+
+#lh-mobile-logo {
+    display: block;
+    
+    @include media-min-width($media-query-tablet) {
+        display: none;
+    }
+}
+
+.menu-item-link {
+    text-decoration: none;
+}
+
+.sub-menu {
+    list-style: none;
+    display:    flex;
+    flex-wrap:  wrap;
+    gap:        25px 50px;
+}
+
+.scrolling-blocked {
+    overflow:   hidden;
+    height:     100%;
+}
+
+.lh-icon-search {
+    display: block;
+    width: 23px;
+    height: 21px;
+    background-image: url("#{$img-path}search.svg");
+    background-position:  0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.lh-search-wrapper {
+    position: absolute;
+    bottom: 72px;
+    left: 0;
+    display: flex;
+    height: 23px;
+    align-items: center;
+    padding-left: 20px;
+
+
+    @include media-min-width($media-query-tablet) {
+        bottom: 91px;
+    }
+
+    @include media-min-width($media-query-desk-md) {
+        bottom: 23px;
+        padding-left: 80px;
+    }
+
+    @include media-min-width($media-query-desk-lg) {
+        padding-left: calc((100% - 1280px) / 2);
+    }
+
+    &.lh-desktop {
+        display: none;
+
+        @include media-min-width($media-query-tablet) {
+            display: block;
+        }
+    }
+
+    .not-at-top & {
+        @include media-min-width($media-query-tablet) {
+            bottom: 10px;
+        }
+    }
+}

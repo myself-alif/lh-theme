@@ -1,0 +1,69 @@
+@use '../settings'  as *;
+
+#lh-toggle-menu {
+    position:           absolute;
+    z-index:            10;
+    top:                40px;
+    left:               25px;
+    display:            block;
+    overflow:           hidden;
+    width:              24px;
+    height:             24px;
+    border:             0;
+    appearance:         none;
+    background-color:   transparent;
+    cursor:             pointer;
+    outline:            none;
+
+    @include media-min-width($media-query-desk-sm){
+        position:           relative;
+        top:                28px;
+        right:              auto;
+        bottom:             auto;
+        width:              32px;
+        height:             32px;
+        border-radius:      0;
+        background-color:   transparent;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    span, 
+    &::after, 
+    &::before {
+        position:           absolute;
+        left:               0;
+        display:            block;
+        overflow:           hidden;
+        width:              24px;
+        height:             2px;
+        background-color:   $typographic-main-black;
+        transition:         all $quick_animation_length ease $no_animation_length;
+    }
+
+    span {  
+        top:            11px;
+        right:          0;
+        left:           auto;
+        width:          24px;
+        text-indent:    100%;
+        white-space:    nowrap;            
+    }
+
+    &::after,
+    &::before {
+        top:        2px;
+        display:    block;
+        content:    '';
+    }
+
+    &::after {
+        top: 20px;
+    }
+
+    @include media_min_width($media_query_desk-sm){
+        display: none;
+    }
+}

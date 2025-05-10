@@ -1,0 +1,254 @@
+@import "../../assets/build/css/import/functions";
+@import "../../assets/build/css/import/settings";
+@import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap";
+
+.acf-block-preview {
+  .selected_post {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+  }
+
+  .lh-pagination-container {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+.lh-acf-block.lh-acf-block-latest-insights {
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow-x: hidden;
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif !important;
+    font-optical-sizing: auto !important;
+  }
+
+  .section-title {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid $lh-navy-100;
+    padding-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 80px;
+
+    .lh-h1.lh-latest-insights-block {
+      padding: 0 !important;
+      font-size: 36px !important;
+    }
+
+    .dashicons,
+    .dashicons::before {
+      font-family: Dashicons, sans-serif !important;
+      display: inline-block;
+      width: 30px !important;
+      height: 30px !important;
+      font-size: 30px !important;
+      color: $sol-orange-500-base;
+    }
+  }
+
+  .selected_posts {
+    display: grid;
+    margin: 0 20px;
+    .selected_post {
+      border: 1px solid #d4ddf2;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      height: auto;
+      .post-details {
+        width: 100%;
+        picture {
+          display: block;
+          width: 100%;
+          height: auto !important;
+          img {
+            display: block;
+            width: 100%;
+            height: 270px !important;
+            object-fit: cover;
+          }
+        }
+
+        .post-categories {
+          display: flex;
+          flex-direction: row !important;
+          gap: 8px;
+          flex-wrap: wrap;
+          justify-content: start;
+          align-items: center;
+          padding: 16px 0;
+          li {
+            font-size: 13px !important;
+            text-transform: capitalize;
+            font-weight: 500;
+            margin: 0 !important;
+            color: #00183d !important;
+            border-radius: 4px;
+            padding: 8px !important;
+            background-color: #e4e4e4 !important;
+            &::before {
+              display: none !important;
+            }
+          }
+        }
+
+        .post-title {
+          padding: 0 !important;
+          margin-bottom: 35px !important;
+          font-weight: 600 !important;
+          font-size: 28px !important;
+          letter-spacing: 0 !important;
+          text-transform: capitalize !important;
+          text-decoration: none !important;
+          color: #00183d !important;
+        }
+      }
+      .post-link {
+        p {
+          padding-bottom: 0 !important;
+          font-weight: 600 !important;
+          font-size: 16px !important;
+          line-height: 100% !important;
+          letter-spacing: 0% !important;
+          text-transform: capitalize !important;
+          color: $sol-orange-500-base !important;
+        }
+      }
+      .modal-wrapper {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+
+        .modal-backdrop {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(0) brightness(100%);
+          z-index: 1;
+        }
+        .popup {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0.95);
+          background: white;
+          z-index: 2;
+          padding: 40px;
+          border-radius: 8px;
+          width: 80%;
+          opacity: 0;
+
+          .popup-title {
+            padding-top: 0 !important;
+            padding-bottom: 20px !important;
+            color: #00183d;
+            font-weight: 600;
+            font-size: 28px;
+            letter-spacing: 0;
+            text-transform: capitalize;
+          }
+
+          .popup-excerpt {
+            color: #656565;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 130%;
+            letter-spacing: 0%;
+          }
+
+          .close-modal {
+            position: absolute;
+            display: block;
+            top: 10px;
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .selected_posts.col-3 {
+    grid-template-columns: repeat(3, minmax(210px, 1fr));
+
+    @include media-max-width(768px) {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+  }
+  .selected_posts.col-2 {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+
+    @include media-max-width(768px) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+  .selected_posts.col-1 {
+    display: block;
+    .selected_post:not(:last-of-type) {
+      margin-bottom: 60px;
+    }
+  }
+
+  .lh-pagination-container.lh-pagination-numeric {
+    margin-top: 80px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    a.lh-pagination-numeric-link {
+      display: inline-block;
+      text-decoration: none;
+      padding-top: 12px;
+      padding-right: 18px;
+      padding-bottom: 12px;
+      padding-left: 18px;
+      color: #b8b8b8;
+      border-radius: 6px;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #ccc;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 130%;
+      letter-spacing: 0%;
+    }
+
+    a.lh-pagination-numeric-link.lh-pagination-numeric-link-active {
+      color: #00183d;
+      border-color: #fd7a23;
+    }
+    .lh-pagination-separator {
+      margin: 0 13px;
+    }
+  }
+
+  @include media-max-width(500px) {
+    .section-title {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+    }
+
+    .lh-pagination-container {
+      margin-top: 40px !important;
+      .lh-pagination-numeric-link {
+        padding: 11px 8px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,582 @@
+@use 'settings' as *;
+
+.lh-fe,
+.lh-acf-block,
+.lh-non-acf-block,
+.wp-block,
+html :where(.editor-styles-wrapper) {
+
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizelegibility;
+    }
+
+    #root {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin:         0;
+            padding:        0;
+            font-family:    $primary-font;
+            font-style:     normal;
+            font-weight:    600;
+            line-height:    115%;
+            text-transform: capitalize;
+            color:          $typographic-main-black;
+        }
+
+        h1 {
+            padding-top:    p2r(40);
+            padding-bottom: p2r(24);
+            font-size:      p2r(40);
+
+            @include media-min-width($media-query-desk-sm) {
+                font-size: p2r(64);
+            }
+        }
+
+        h2 {
+            padding-top:    p2r(32);
+            padding-bottom: p2r(16);
+            font-size:      p2r(36);
+
+            @include media-min-width($media-query-desk-sm) {
+                font-size: p2r(48);
+            }
+        }
+
+        h3 {
+            padding-top:    p2r(16);
+            font-size:      p2r(26);
+            letter-spacing: p2r(-0.78);
+            line-height:    130%; /* 33.8px */
+
+            @include media-min-width($media-query-desk-sm) {
+                font-size:      p2r(36);
+                letter-spacing: 0;
+                line-height:    115%; /* 41.4px */
+            }
+        }
+
+        h4 {
+            padding-top:    p2r(16);
+            font-size:      p2r(28);
+        }
+
+        h5 {
+            padding-top:    p2r(16);
+            font-size:      p2r(20);
+        }
+
+        h6 {
+            padding-top:    p2r(16);
+            font-size:      p2r(16);
+            line-height:    150%; /* 24px */
+        }
+
+        ol,
+        ul,
+        li,
+        p {
+            margin:         0;
+            padding:        0;
+            color:          $typographic-light;
+            font-family:    $secondary-font;
+            font-size:      p2r(16);
+            font-style:     normal;
+            font-weight:    400;
+            line-height:    160%; /* 25.6px */
+
+            b,
+            strong {
+                font-weight: 600;
+            }
+        }
+
+        ol,
+        ul,
+        p {
+            padding-top:    p2r(16);
+            padding-bottom: p2r(16);
+        }
+
+        ol,
+        ul {
+            display:        flex;
+            flex-direction: column;
+            flex-wrap:      nowrap;
+            align-items:    flex-start;
+            gap:            8px;
+            margin:         0;
+            padding:        16px 0;
+
+            li {
+                padding: 0;
+
+                p {
+                    &:first-child {
+                        margin-top:     0 !important;
+                        padding-top:    0 !important;
+                    }
+
+                    &:last-child {
+                        margin-bottom:  0 !important;
+                        padding-bottom: 0 !important;
+                    }
+                }
+            }
+        }
+
+        ol {
+            li {
+                margin:     0 0 0 32px;
+                padding:    0 0 0 10px;
+
+                &::marker {
+                    color:          $typographic-light;
+                    font-family:    $secondary-font;
+                    font-size:      p2r(16);
+                    font-style:     normal;
+                    font-weight:    400;
+                    line-height:    160%; /* 25.6px */
+                    text-align:     right;
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                list-style: none;
+                position:   relative;
+                margin:     0 0 0 34px;
+
+                &::before {
+                    content:                ' ';
+                    position:               absolute;
+                    top:                    0;
+                    left:                   -34px;
+                    display:                block;
+                    width:                  p2r(24);
+                    height:                 p2r(26);
+                    background:             transparent url('#{$img-path}bullet.svg') no-repeat;
+                    background-position:    center center;
+                    background-size:        contain;
+                }
+            }
+        }
+
+        label,
+        div,
+        p,
+        ol,
+        ul,
+        li {
+            a:not(.lh-btn):not(.lh-link):not(.acf-icon):not(.link-url):not(.lh-author-name):not(.acf-js-tooltip):not(.ab-item):not(.button):not(.lh-icon-btn):not(.lh-save-btn):not(.lh-share-btn):not(.lh-close-btn):not(.lh-pagination-numeric):not(.lh-carousel-btn):not(.lh-subscribe-link):not(.lh-image-wrapper-link):not(.lh-desk-logo-container):not(.lh-mobile-logo-container):not(.lh-image-wrapper):not(.lh-pagination-numeric-link):not(.menu-item-link):not(.lh-nav-btn):not(.lh-title):not(.lh-share-link) {
+                color:                      $atlantic-blue-500-base;
+                font-family:                $secondary-font;
+                font-size:                  p2r(16);
+                font-style:                 normal;
+                font-weight:                400;
+                line-height:                160%;
+                letter-spacing:             p2r(0.16);
+                text-decoration-line:       underline;
+                text-decoration-style:      solid;
+                text-decoration-skip-ink:   none;
+                text-decoration-thickness:  8%;
+                text-underline-offset:      20%;
+                text-underline-position:    from-font;
+            }
+        }
+
+        picture {
+            display:    block;
+            margin:     0;
+            padding:    0;
+            width:      100%;
+            height:     100%;
+
+            img {
+                display:    block;
+                margin:     0;
+                padding:    0;
+                width:      100%;
+                height:     100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .lh-hover-zoom-small {
+        @include image-hover-animation(small);
+    }
+
+    .lh-hover-zoom-medium {
+        @include image-hover-animation(medium);
+    }
+
+    .lh-hover-zoom-large {
+        @include image-hover-animation(large);
+    }
+
+    /**
+     * Font styles
+     */
+    // Headings
+    .lh-h1,
+    .lh-h2,
+    .lh-h3,
+    .lh-h4,
+    .lh-h5,
+    .lh-h6 {
+        margin:     0;
+        padding:    0;
+        color:      $typographic-main-black;
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        a,
+        div {
+            font-family:    $primary-font;
+            font-style:     normal;
+            font-weight:    600;
+            line-height:    115%;
+            text-transform: capitalize;
+        }
+    }
+
+    .lh-h1 {
+        padding-top:    p2r(40);
+        padding-bottom: p2r(24);
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        a,
+        div {
+            font-size: p2r(40);
+
+            @include media-min-width($media-query-desk-sm) {
+                font-size: p2r(64);
+            }
+        }
+    }
+
+    .lh-h2 {
+        padding-top:    p2r(32);
+        padding-bottom: p2r(16);
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        a,
+        div {
+            font-size: p2r(36);
+
+            @include media-min-width($media-query-desk-sm) {
+                font-size: p2r(48);
+            }
+        }
+    }
+
+    .lh-h3 {
+        padding-top: p2r(16);
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        a,
+        div {
+            font-size:      p2r(26);
+            letter-spacing: p2r(-0.78);
+            line-height:    130%; /* 33.8px */
+
+            @include media-min-width($media-query-desk-sm) {
+                font-size:      p2r(36);
+                letter-spacing: 0;
+                line-height:    115%; /* 41.4px */
+            }
+        }
+    }
+
+    .lh-h4 {
+        padding-top: p2r(16);
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        a,
+        div {
+            font-size: p2r(28);
+        }
+    }
+
+    .lh-h5 {
+        padding-top: p2r(16);
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        a,
+        div {
+            font-size: p2r(20);
+        }
+    }
+
+    .lh-h6 {
+        padding-top: p2r(16);
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        a,
+        div {
+            font-size:      p2r(16);
+            line-height:    150%; /* 24px */
+        }
+    }
+
+    // Body
+    .lh-body-extra-large-text {
+        &,
+        p,
+        ul,
+        ol,
+        li,
+        dd,
+        dt,
+        span,
+        h5,
+        a {
+            font-family:    $secondary-font;
+            font-size:      p2r(32);
+            font-style:     normal;
+            font-weight:    400;
+            line-height:    150%; /* 48px */
+
+            b,
+            strong {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .lh-body-large-text {
+        &,
+        p,
+        ul,
+        ol,
+        li,
+        dd,
+        dt,
+        span,
+        h5,
+        a {
+            font-family:    $secondary-font;
+            font-size:      p2r(24);
+            font-style:     normal;
+            font-weight:    400;
+            line-height:    160%; /* 38.4px */
+
+            b,
+            strong {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .lh-body-standard-text {
+        &,
+        p,
+        ul,
+        ol,
+        li,
+        dd,
+        dt,
+        span,
+        h5,
+        a {
+            font-family:    $secondary-font;
+            font-size:      p2r(16);
+            font-style:     normal;
+            font-weight:    400;
+            line-height:    160%; /* 25.6px */
+
+            b,
+            strong {
+                font-weight: 600;
+            }
+        }
+    }
+
+    // Buttons
+    /* stylelint-disable-next-line no-invalid-position-at-import-rule */
+    @import 'content/buttons';
+
+    .lh-buttons-large-text {
+        &,
+        p,
+        ul,
+        ol,
+        li,
+        dd,
+        dt,
+        span,
+        a,
+        input,
+        button {
+            font-family:    $secondary-font;
+            font-size:      p2r(16);
+            font-style:     normal;
+            font-weight:    600;
+            line-height:    100%;
+            text-transform: capitalize;
+        }
+    }
+
+    .lh-buttons-medium-text,
+    .lh-buttons-standard-text {
+        &,
+        p,
+        ul,
+        ol,
+        li,
+        dd,
+        dt,
+        span,
+        a,
+        input,
+        button {
+            font-family:    $secondary-font;
+            font-size:      p2r(14);
+            font-style:     normal;
+            font-weight:    600;
+            line-height:    100%;
+            text-transform: capitalize;
+        }
+    }
+
+    .lh-buttons-small-text {
+        &,
+        p,
+        ul,
+        ol,
+        li,
+        dd,
+        dt,
+        span,
+        a,
+        input,
+        button {
+            font-family:    $secondary-font;
+            font-size:      p2r(12);
+            font-style:     normal;
+            font-weight:    600;
+            line-height:    100%;
+            text-transform: capitalize;
+        }
+    }
+
+    // Links
+    /* stylelint-disable-next-line no-invalid-position-at-import-rule */
+    @import 'content/links';
+
+    .lh-links-standard-text {
+        &,
+        p,
+        ul,
+        ol,
+        li,
+        dd,
+        dt,
+        span,
+        a,
+        input,
+        button {
+            font-family:    $secondary-font;
+            font-size:      p2r(16);
+            font-style:     normal;
+            font-weight:    600;
+            line-height:    100%;
+            text-transform: capitalize;
+        }
+    }
+
+    // Forms
+
+    // Navigation
+
+    .lh-uppercase-first-letter {
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.blockUI.blockOverlay {
+    background-color: $neutral-surface-main-white !important;
+}
+
+.blockUI.blockMsg.blockElement {
+    content:                ' ';
+    display:                block                       !important;
+    top:                    50%                         !important;
+    left:                   50%                         !important;
+    margin:                 -12.5px 0 0 -12.5px;
+    padding:                0;
+    width:                  25px;
+    height:                 25px;
+    background:             transparent;
+    background-image:       url('#{$img-path}spinner.svg');
+    background-repeat:      no-repeat;
+    background-position:    center center;
+    background-size:        cover;
+}

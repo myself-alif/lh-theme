@@ -1,0 +1,163 @@
+@use '../settings'  as *;
+
+#header .lh-header-menu-mobile-menu-wrapper {
+    position:   absolute;
+    top:        0;
+    left:       0;
+    display:    block;
+    width:      100%;
+    height:     100px;
+
+    .lh-dropdown-arrow {
+        position:               absolute;
+        z-index:                2;
+        top:                    17px;
+        right:                  9px;
+        display:                block;
+        width:                  48px;
+        height:                 48px;
+        background-image:       url("#{$img-path}chevron.svg");
+        background-position:    50% calc(50% + 5px);
+        background-repeat:      no-repeat;
+        background-size:        18px 9px;   
+        transform:              rotate(270deg);
+    }
+
+    @include media-min-width($media-query-tablet){
+        display: none;
+    }
+
+    .lh-logo-wrapper {
+        margin-top: 36px;
+        padding:    0;
+    }
+
+    .lh-menu-mobile-menu-header {
+        // empty
+    }
+
+    .lh-menu-mobile-menu-body {
+        position:       relative;
+        left:           -110%;
+        opacity:        1;
+        pointer-events: none;
+        transition:     left $quick-animation-length ease 0s;
+    }
+
+    .lh-mobile-menu-wrapper {
+        height:             calc(100vh - 69px);
+        background-color:   $neutral-surface-main-white;
+        overflow-y:         scroll;
+
+        .menu {
+            display:            block;
+            flex-direction:     column;
+            border-top:         1px solid $typographic-faded;
+            margin-top:         26px;
+            list-style-type:    none;
+            opacity:            1;
+            pointer-events:     none;
+            transition:         opacity $animation-length ease 0s;
+
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            & > li {
+                position:   relative;
+                overflow:   hidden;
+                margin:     0;
+                padding:    0;
+                width:      100%;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
+
+            .menu-item-has-children {
+                position: relative;
+
+                .sub-menu {
+                    display: none;
+                    justify-content: flex-start;
+                    padding: 20px;
+                    list-style: none;
+
+                    li {
+                        position: relative;
+                        z-index: 2;
+                        width: 100%;
+                        gap: 10px;
+
+                        &:last-of-type {
+                            border-bottom: 0;
+                        }
+
+                        a {
+                            letter-spacing: 0;
+                            text-transform: none;
+                        }
+                    }
+                }
+
+                &.open {
+                    overflow: visible;
+
+                    .lh-dropdown-arrow {
+                        transform: rotate(0deg);
+                    }
+
+                    .sub-menu {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+
+    .lh-mobile-user-menu-wrapper {
+        &.open {
+            overflow: visible;
+        }
+    }
+}
+ 
+
+.nav-open {
+    overflow: hidden;
+    
+    @include media-min-width($media-query-tablet){
+        overflow: visible;
+    }
+
+    @include media-max-width($media-query-tablet){
+        .lh-menu-mobile-menu-header .lh-icon-search {
+            display: none !important;
+        }
+    }
+    
+    #header .lh-header-menu-mobile-menu-wrapper {
+        height: auto;
+
+        .menu {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lh-menu-mobile-menu-header {
+            .lh-search-link {
+                display: none;
+            }
+        }
+
+        .lh-menu-mobile-menu-body {
+            left: 0;
+            pointer-events: all;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+@import "../../assets/build/css/import/functions";
+@import "../../assets/build/css/import/settings";
+@import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap";
+
+.lh-acf-block.lh-acf-block-cta-banner {
+  max-width: 1280px;
+  margin: 0 auto !important;
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+    font-optical-sizing: auto;
+  }
+  .section-title {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid $lh-navy-100;
+    padding-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 80px;
+
+    .lh-h1.lh-cta-banner-block {
+      padding: 0 !important;
+      font-size: 36px !important;
+    }
+
+    .dashicons,
+    .dashicons::before {
+      font-family: Dashicons, sans-serif !important;
+      display: inline-block;
+      width: 30px !important;
+      height: 30px !important;
+      font-size: 30px !important;
+      color: $sol-orange-500-base;
+    }
+  }
+  .banner-content {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 80px 120px;
+    border: 1px solid #d4ddf2;
+    .banner-info {
+      max-width: 480px;
+      .banner-heading {
+        padding: 0 !important;
+        padding-bottom: 20px !important;
+        font-weight: 600;
+        font-size: 28px !important;
+        letter-spacing: 0;
+        text-transform: capitalize;
+      }
+      .banner-description {
+        padding: 0 !important;
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 0%;
+      }
+    }
+    .banner-links {
+      display: flex;
+      width: 250px;
+      flex-direction: column;
+      gap: 12px;
+      .banner-link {
+        text-align: center;
+        text-decoration: none !important;
+        padding: 8px 20px;
+        display: block !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
+        letter-spacing: 0%;
+        text-transform: capitalize;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  @include media-max-width(1015px) {
+    .section-title {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+    }
+
+    .banner-content {
+      padding: 20px;
+      text-align: center;
+      gap: 20px;
+    }
+    .banner-info,
+    .banner-links {
+      margin: 0 auto;
+    }
+  }
+
+  @include media-max-width(500px) {
+    .banner-content {
+      .banner-links {
+        width: 100% !important;
+      }
+    }
+  }
+}

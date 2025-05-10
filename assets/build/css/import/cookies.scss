@@ -1,0 +1,125 @@
+@use 'settings'  as *;
+
+#adroll_consent_container {
+    $adroll-bp: 640px;
+    
+    // all container
+    #adroll_consent_banner {
+        width: 100%;
+
+        @include media-min-width($adroll-bp){
+            width: 600px
+        }
+    }
+
+    .adroll_consent_first_page_logo {
+        display: none;
+    }
+
+    .adroll_consent_text {
+        font-family:    $primary-font;
+        font-size:      p2r(20);
+        font-weight:    normal;
+        letter-spacing: normal;
+        line-height:    p2r(25);
+        margin-left:    16px;
+        margin-right:   16px;
+    }
+
+    .adroll_consent_title {
+        font-family:    $primary-font;
+    }
+
+    .adroll_consent_box,
+    .adroll_consent_settings,
+    .adroll_consent_banner_partners_link_class {
+        font-family:        $secondary-font;
+        font-size:          p2r(11);
+        letter-spacing:     p2r(1.22);
+        line-height:        p2r(12);
+        color: default;
+
+        &::before {
+            bottom: 0;
+        }
+    }
+
+    .adroll_consent_button_bar {
+        @include media-max-width($adroll-bp){
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    #adroll_consent_reject,
+    #adroll_consent_button {
+        @include media-max-width($adroll-bp){
+            width: calc(100% - 40px);
+            margin: 0 20px;
+        }
+
+        &::before {
+            display: none !important;
+        }
+    }
+}
+
+.qc-cmp2-container {
+    position: fixed !important;
+    z-index: 102 !important;
+    bottom: 0 !important;
+  
+    .css-47sehv {
+        background: $atlantic-blue-900 !important;
+    }
+  
+    .css-8rroe4 {
+        color: $atlantic-blue-900 !important;
+    }
+  
+    button {
+        &:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    }
+  
+    .qc-cmp2-home-button {
+        color: $atlantic-blue-900 !important;
+    }
+  
+    .qc-cmp2-home-button svg use {
+        fill: $atlantic-blue-900 !important;
+    }
+  
+    .css-2n8zm6 .loader .line-scale div {
+        background: $atlantic-blue-900 !important;
+    }
+
+    .css-1hy2vtq {
+        border: 1px solid $atlantic-blue-900 !important;
+        color: $atlantic-blue-900 !important;
+
+        &:hover {
+            border-color: $atlantic-blue-900 !important;
+            background: $atlantic-blue-900 !important;
+            color: $neutral-surface-main-white !important;
+        }
+    }
+
+    .qc-cmp2-link-inline {
+        color: $atlantic-blue-900 !important;
+    }
+  
+    .qc-cmp2-persistent-link {
+        background-color: $atlantic-blue-900 !important;
+
+        &::before {
+            display: none !important;
+        }
+
+        &:focus {
+            outline: none !important;
+        }
+    }
+}

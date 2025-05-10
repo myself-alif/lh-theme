@@ -1,0 +1,124 @@
+@use 'functions' as *;
+
+/**
+ * Colors
+ */
+$sol-orange-900:                                #070402;
+$sol-orange-800:                                #65310e;
+$sol-orange-700:                                #984916;
+$sol-orange-600:                                #ca621d;
+$sol-orange-500-base:                           #fd7a23;
+$sol-orange-400:                                #fd9550;
+$sol-orange-300:                                #feaf7c;
+$sol-orange-200:                                #fecaa7;
+$sol-orange-100:                                #fef4ed;
+$sol-orange-50:                                 #fffcfa;
+$atlantic-blue-900:                             #00183d;
+$atlantic-blue-800:                             #002966;
+$atlantic-blue-700:                             #003d99;
+$atlantic-blue-600:                             #0052cc;
+$atlantic-blue-500-base:                        #06f;
+$atlantic-blue-400:                             #3385ff;
+$atlantic-blue-300:                             #66a3ff;
+$atlantic-blue-200:                             #99c2ff;
+$atlantic-blue-100:                             #cce0ff;
+$atlantic-blue-50:                              #e5f0ff;
+$lh-navy-900-base:                        #071120;
+$lh-navy-800:                             #18243e;
+$lh-navy-700:                             #344566;
+$lh-navy-600:                             #435170;
+$lh-navy-500:                             #5c6b8e;
+$lh-navy-400:                             #7281a6;
+$lh-navy-300:                             #a4b3d7;
+$lh-navy-200:                             #bec9e1;
+$lh-navy-100:                             #d4ddf2;
+$lh-navy-50-base:                         #eef4ff;
+$typographic-main-white:                        #fff;
+$typographic-main-black:                        #0d1311;
+$typographic-light:                             #656565;
+$typographic-faded:                             #b8b8b8;
+$neutral-surface-border-divider:                #c8cbca;
+$neutral-surface-darker:                        #e7e9e8;
+$neutral-surface-dark:                          #f4f4f4;
+$neutral-surface-main-white:                    #fff;
+$neutral-surface-disable-fields-background:     #b8b8b8;
+$neutral-surface-disable-buttons-background:    #f5f5f5;
+$neutral-surface-disable-buttons-text:          #b8b8b8;
+$status-error-background:                       #ffe7e7;
+$status-error-main:                             #e05c5c;
+$status-success-main:                           #009f6f;
+$status-success-background:                     #ccfaeb;
+$placeholder-text:                              $typographic-faded;
+$error:                                         $status-error-main;
+$primary:                                       #FFF5B1;
+
+/**
+ * Fonts
+ */
+$primary-font:      manrope, sans-serif;
+$secondary-font:    manrope, sans-serif;
+
+/**
+ * Spacing and sizes
+ */
+$base-font-size:    16;
+
+@import 'functions';
+
+$wordpress-adminbar-height-mobile-val:  46;
+$wordpress-adminbar-height-mobile:      p2r($wordpress-adminbar-height-mobile-val);
+$wordpress-adminbar-height-desktop-val: 32;
+$wordpress-adminbar-height-desktop:     p2r($wordpress-adminbar-height-desktop-val);
+
+/* Header */
+$header-height-mobile-val:              91;
+$header-height-mobile:                  p2r($header-height-mobile-val);
+$header-height-desktop-val:             91;
+$header-height-desktop:                 p2r($header-height-desktop-val);
+
+
+/* Footer */
+$footer-height-mobile-val:  504;
+$footer-height-mobile:      p2r($footer-height-mobile-val);
+$footer-height-desktop-val: 283;
+$footer-height-desktop:     p2r($footer-height-desktop-val);
+
+/**
+ * Animations
+ */
+$no-animation-length:           0s;
+$quick-animation-length:        0.25s;
+$animation-length:              0.5s;
+$long-animation-length:         0.75s;
+$very-long-animation-length:    1s;
+
+/**
+ * Media Query Breakpoints
+ */
+$media-query-tablet:    768px;
+$media-query-desk-sm:   1024px;
+$media-query-desk-md:   1280px;
+$media-query-desk-lg:   1440px;
+$media-query-desk-xl:   1920px;
+
+/**
+ * Breakpoint list for responsive stylesheet creation with webpack
+ * used by @create-block-stylesheets
+ */
+$stylesheet-breakpoints: $media-query-tablet, $media-query-desk-sm;
+
+/**
+ * Z-indexes
+ * Lets presume we have 5 levels, this should be enough 
+ */
+$z-index-max:       40;
+$z-index-high:      30;
+$z-index-mid:       20;
+$z-index-low:       10;
+$z-index-bottom:    0;
+
+/**
+ * Theme paths
+ */
+$img-path:     '/wp-content/themes/lh-theme/assets/dist/img/';
+$font-path:    '/wp-content/themes/lh-theme/assets/dist/fonts/';

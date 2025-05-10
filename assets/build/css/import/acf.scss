@@ -1,0 +1,405 @@
+@use 'settings'  as *;
+
+.lh-acf-block {
+    position:           relative;
+    margin:             0;
+    scroll-margin-top:  calc(#{$header-height-mobile} + #{p2r(24)});
+
+    &.wp-block {
+        position:   relative;
+        margin:     0;
+    }
+
+    &:first-child {
+        margin-top:         0;
+        scroll-margin-top:  0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include media-min-width($media-query-desk-sm) {
+        scroll-margin-top: calc(#{$header-height-desktop} + #{p2r(24)});
+    }
+}
+
+.logged-in.admin-bar {
+    &.not-at-top {
+        .lh-acf-block {
+            scroll-margin-top: calc(#{$header-height-mobile} + #{p2r(24)});
+
+            @include media-min-width(601px) {
+                scroll-margin-top: calc(#{$header-height-mobile} + #{p2r(24)} - #{$wordpress-adminbar-height-mobile});
+            }
+
+            @include media-min-width(783px) {
+                scroll-margin-top: calc(#{$header-height-mobile} + #{p2r(24)} - #{$wordpress-adminbar-height-desktop});
+            }
+
+            @include media-min-width($media-query-desk-sm) {
+                scroll-margin-top: calc(#{$header-height-desktop} + #{p2r(24)} - #{$wordpress-adminbar-height-desktop});
+            }
+        }
+    }
+
+    .lh-acf-block {
+        scroll-margin-top: calc(#{$header-height-mobile} + #{p2r(24)} + #{$wordpress-adminbar-height-mobile});
+
+        @include media-min-width(783px) {
+            scroll-margin-top: calc(#{$header-height-mobile} + #{p2r(24)} + #{$wordpress-adminbar-height-desktop});
+        }
+
+        @include media-min-width($media-query-desk-sm) {
+            scroll-margin-top: calc(#{$header-height-desktop} + #{p2r(24)} + #{$wordpress-adminbar-height-desktop});
+        }
+    }
+}
+
+.acf-block-preview {
+    * {
+        box-sizing: content-box;
+    }
+}
+
+.lh-non-acf-block {
+    margin:             0 auto;
+    padding:            0 24px;
+    scroll-margin-top:  calc(#{$header-height-mobile} + #{p2r(24)});
+
+    @include media-min-width($media-query-desk-sm) {
+        margin:             0 auto;
+        padding:            0 80px;
+        max-width:          calc(1200px + 2 * 80px);
+        scroll-margin-top:  calc(#{$header-height-desktop} + #{p2r(24)});
+    }
+
+    @include media-min-width($media-query-desk-lg) {
+        padding:    0 120px;
+        max-width:  calc(1200px + 2 * 120px);
+    }
+
+    &.lh-non-acf-block-core-heading {
+        margin:     0 auto;
+        max-width:  calc(850px + 2 * 24px);
+        color:      $typographic-main-black;
+
+        @include media-min-width($media-query-desk-sm) {
+            max-width: calc(850px + 2 * 80px);
+        }
+
+        @include media-min-width($media-query-desk-lg) {
+            max-width: calc(850px + 2 * 120px);
+        }
+    }
+
+    &.lh-non-acf-block-core-paragraph {
+        max-width:      calc(850px + 2 * 24px);
+        color:          $typographic-light;
+        font-family:    $secondary-font;
+        font-size:      p2r(18);
+        letter-spacing: 0;
+        line-height:    p2r(34);
+
+        @include media-min-width($media-query-desk-sm) {
+            max-width: calc(850px + 2 * 80px);
+        }
+
+        @include media-min-width($media-query-desk-lg) {
+            max-width: calc(850px + 2 * 120px);
+        }
+
+        p {
+            color:          $typographic-light;
+            font-family:    $secondary-font;
+            font-size:      p2r(16);
+            font-style:     normal;
+            font-weight:    400;
+            line-height:    160%; /* 25.6px */
+
+            b,
+            strong {
+                font-weight: 600;
+            }
+        }
+
+        a {
+            color:                      $atlantic-blue-500-base;
+            font-family:                $secondary-font;
+            font-size:                  p2r(16);
+            font-style:                 normal;
+            font-weight:                400;
+            line-height:                160%;
+            letter-spacing:             p2r(0.16);
+            text-decoration-line:       underline;
+            text-decoration-style:      solid;
+            text-decoration-skip-ink:   none;
+            text-decoration-thickness:  8%;
+            text-underline-offset:      20%;
+            text-underline-position:    from-font;
+        }
+    }
+
+    &.lh-non-acf-block-core-list {
+        max-width:  calc(850px + 2 * 24px);
+        color:      $typographic-light;
+
+        @include media-min-width($media-query-desk-sm) {
+            max-width: calc(850px + 2 * 80px);
+        }
+
+        @include media-min-width($media-query-desk-lg) {
+            max-width: calc(850px + 2 * 120px);
+        }
+
+        .wp-block-list {
+            li {
+                .lh-non-acf-block,
+                .lh-non-acf-block.lh-non-acf-block-core-list {
+                    margin:     0;
+                    padding:    0;
+
+                    @include media-min-width($media-query-desk-sm) {
+                        margin:     0;
+                        padding:    0;
+                    }
+
+                    @include media-min-width($media-query-desk-lg) {
+                        margin:     0;
+                        padding:    0;
+                    }
+                }
+
+                .wp-block-list,
+                p {
+                    &:first-child {
+                        margin-top:     0 !important;
+                        padding-top:    0 !important;
+                    }
+
+                    &:last-child {
+                        margin-bottom:  0 !important;
+                        padding-bottom: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &.lh-non-acf-block-core-quote {
+        padding-top:    32px;
+        padding-bottom: 32px;
+        max-width:      calc(850px + 2 * 24px);
+
+        @include media-min-width($media-query-desk-sm) {
+            max-width: calc(850px + 2 * 80px);
+        }
+
+        @include media-min-width($media-query-desk-lg) {
+            max-width: calc(850px + 2 * 120px);
+        }
+
+        blockquote,
+        .wp-block-quote {
+            display:            flex;
+            flex-flow:          column nowrap;
+            justify-content:    flex-start;
+            align-items:        flex-start;
+            gap:                24px;
+            margin:             0;
+            padding:            4px 24px;
+            box-shadow:         -2px 0 0 0 #000;
+
+            & > .lh-non-acf-block,
+            & > .lh-non-acf-block.lh-non-acf-block-core-paragraph {
+                margin:     0;
+                padding:    0;
+
+                @include media-min-width($media-query-desk-sm) {
+                    margin:     0;
+                    padding:    0;
+                }
+        
+                @include media-min-width($media-query-desk-lg) {
+                    margin:     0;
+                    padding:    0;
+                }
+
+                p {
+                    &:first-child {
+                        margin-top:     0 !important;
+                        padding-top:    0 !important;
+                    }
+
+                    &:last-child {
+                        margin-bottom:  0 !important;
+                        padding-bottom: 0 !important;
+                    }
+                }
+            }
+
+            &,
+            p {
+                color:          $typographic-main-black;
+                font-family:    $secondary-font;
+                font-size:      p2r(16);
+                font-style:     normal;
+                font-weight:    400;
+                line-height:    160%; /* 25.6px */
+
+                b,
+                strong {
+                    font-weight: 600;
+                }
+            }
+
+            cite {
+                margin:         0;
+                padding:        0;
+                color:          $typographic-light;
+                font-family:    $secondary-font;
+                font-size:      p2r(14);
+                font-style:     normal;
+                font-weight:    400;
+                line-height:    150%; /* 21px */
+            }
+        }
+    }
+
+    &.lh-non-acf-block-core-image {
+        max-width: 850px;
+
+        .wp-block-image {
+            margin:     0;
+            padding:    0;
+
+            figcaption {
+                margin:         15px 0 0;
+                padding:        0;
+                color:          $typographic-faded;
+                font-family:    $primary-font;
+                font-size:      p2r(14);
+                font-weight:    normal;
+                letter-spacing: 0;
+                line-height:    p2r(17);
+            }
+        }
+    }
+
+    &.lh-non-acf-block-core-embed {
+        .wp-block-embed {
+            margin:     0;
+            padding:    0;
+
+            &.is-type-video {
+                .wp-block-embed--wrapper {
+                    margin:     0;
+                    padding:    0;
+                    width:      100%;
+                    height:     calc((100vw - 2 * 24px) * 9 / 16);
+
+                    @include media-min-width($media-query-desk-sm) {
+                        height: calc((100vw - 2 * 80px) * 9 / 16);
+                    }
+
+                    @include media-min-width($media-query-desk-lg) {
+                        height: 720px;
+                    }
+                }
+
+                &.wp-embed-aspect-16-9 {
+                    .wp-block-embed--wrapper {
+                        width:  100%;
+                        height: calc((100vw - 2 * 24px) * 9 / 16);
+
+                        @include media-min-width($media-query-desk-sm) {
+                            height: calc((100vw - 2 * 80px) * 9 / 16);
+                        }
+
+                        @include media-min-width($media-query-desk-lg) {
+                            height: 720px;
+                        }
+                    }
+                }
+
+                &.wp-embed-aspect-4-3 {
+                    .wp-block-embed__wrapper {
+                        width:  100%;
+                        height: calc((100vw - 2 * 24px) * 3 / 4);
+
+                        @include media-min-width($media-query-desk-sm) {
+                            height: calc((100vw - 2 * 80px) * 3 / 4);
+                        }
+
+                        @include media-min-width($media-query-desk-lg) {
+                            height: 960px;
+                        }
+                    }
+                }
+
+                iframe {
+                    margin:     0;
+                    padding:    0;
+                    width:      100%;
+                    height:     100%;
+                }
+            }
+
+            figcaption {
+                margin:         15px 0 0;
+                padding:        0;
+                color:          $typographic-light;
+                font-family:    $secondary-font;
+                font-size:      p2r(14);
+                font-style:     normal;
+                font-weight:    400;
+                line-height:    150%; /* 21px */
+            }
+        }
+    }
+
+    &.lh-non-acf-block-core-preformatted {
+        max-width: calc(850px + 2 * 24px);
+
+        @include media-min-width($media-query-desk-sm) {
+            max-width: calc(850px + 2 * 80px);
+        }
+
+        @include media-min-width($media-query-desk-lg) {
+            max-width: calc(850px + 2 * 120px);
+        }
+
+        .wp-block-preformatted {
+            width:      100%;
+            max-width:  unset;
+        }
+    }
+
+    &.lh-non-acf-block-core-details {
+        max-width: calc(850px + 2 * 24px);
+
+        @include media-min-width($media-query-desk-sm) {
+            max-width: calc(850px + 2 * 80px);
+        }
+
+        @include media-min-width($media-query-desk-lg) {
+            max-width: calc(850px + 2 * 120px);
+        }
+
+        .wp-block-details {
+            summary {
+                font-family:    $primary-font;
+                font-size:      p2r(26);
+                letter-spacing: p2r(-0.78);
+                line-height:    130%; /* 33.8px */
+                cursor:         pointer;
+
+                @include media-min-width($media-query-desk-sm) {
+                    font-size:      p2r(36);
+                    letter-spacing: 0;
+                    line-height:    115%; /* 41.4px */
+                }
+            }
+        }
+    }
+}

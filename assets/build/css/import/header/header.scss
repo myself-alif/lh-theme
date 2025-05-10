@@ -1,0 +1,161 @@
+@use '../settings'  as *;
+
+.logged-in.admin-bar {
+    #header {
+        top: $wordpress-adminbar-height-mobile;
+
+        @include media-min-width(783px){
+            top: $wordpress-adminbar-height-desktop;
+        }
+
+        &.not-at-top {
+            top: 0;
+
+            @include media-min-width(601px){
+                top: $wordpress-adminbar-height-mobile;
+            }
+
+            @include media-min-width(783px){
+                top: $wordpress-adminbar-height-desktop;
+            }
+
+            .lh-navigation {
+                .lh-menus-wrapper {
+                    .lh-header-menu-mobile-menu-wrapper {
+                        top:    0;
+                        height: 100%;
+
+                        @include media-min-width(601px){
+                            top:    $wordpress-adminbar-height-mobile;
+                            height: calc(100% - #{$wordpress-adminbar-height-mobile});
+                        }
+
+                        @include media-min-width(783px){
+                            top:    $wordpress-adminbar-height-desktop;
+                            height: calc(100% - #{$wordpress-adminbar-height-desktop});
+                        }
+                    }
+                }
+            }
+        }
+
+        .lh-navigation {
+            .lh-menus-wrapper {
+                .lh-header-menu-mobile-menu-wrapper {
+                    top:    $wordpress-adminbar-height-mobile;
+                    height: calc(100% - #{$wordpress-adminbar-height-mobile});
+
+                    @include media-min-width(783px){
+                        top:    $wordpress-adminbar-height-desktop;
+                        height: calc(100% - #{$wordpress-adminbar-height-desktop});
+                    }
+                }
+            }
+        }
+    }
+}
+
+#header {
+    position:           fixed;
+    z-index:            101;
+    width:              100%;
+    height:             97px;
+    border-bottom:      1px solid $typographic-faded;
+    background-color:   $neutral-surface-main-white;
+    top:                0;
+
+    @include media-min-width($media-query-tablet){
+        height: auto;
+    }
+
+    .lh-navigation {
+        position: relative;
+        z-index: 1;
+
+        @include media-min-width($media-query-tablet){
+            padding-bottom: 22px;
+            transition: padding $quick-animation-length ease $no-animation-length;
+        }
+    }
+    
+    .lh-logo-wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+        transition: padding $quick-animation-length ease $no-animation-length;
+
+        @include media-min-width($media-query-tablet){
+            padding: 30px 20px;
+        }
+
+        .lh-desk-logo-container {
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            text-decoration: none;
+            transition: transform $quick-animation-length ease $no-animation-length,
+                        height $quick-animation-length ease $no-animation-length,
+                        background-image $quick-animation-length ease $no-animation-length;
+    
+            #lh-desk-logo {
+                opacity: 1;
+                transition: opacity $quick-animation-length ease $no-animation-length;
+            }
+        }
+
+        .lh-mobile-logo-container {
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            text-decoration: none;
+            transition: transform $quick-animation-length ease $no-animation-length,
+                        height $quick-animation-length ease $no-animation-length,
+                        background-image $quick-animation-length ease $no-animation-length;
+
+            #lh-mobile-logo {
+                opacity: 1;
+                transition: opacity $quick-animation-length ease $no-animation-length;
+            }
+        }
+    }
+
+    @include media-min-width($media-query-tablet){
+        &:not(.not-at-top) {
+            .lh-desk-logo-container {
+                background-image: none !important;
+            }
+        }
+
+        &.not-at-top {
+            .lh-navigation {
+                padding-bottom: 10px;
+            }
+            
+            .lh-logo-wrapper {
+                padding: 10px;
+
+                .lh-desk-logo-container {
+                    #lh-desk-logo {
+                        opacity: 0;
+                        height: 50px;
+                        width: 67px;
+                    }
+                }
+            }
+
+            .lh-mobile-logo-container {
+                padding: 5px;
+            }
+        
+            #menu-main-navigation {
+                .sub-menu,
+                .lh-menu-drawer {
+                    &::before {
+                        top: 6px;
+                    }
+                }
+            }
+        }
+    }
+}

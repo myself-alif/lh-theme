@@ -1,0 +1,114 @@
+@use '../settings'  as *;
+
+.lh-links-menu-wrapper > .menu {
+    display:            none;
+    flex-direction:     column;
+    align-items:        flex-start;
+    justify-content:    center;
+    gap:                50px 20px;
+    padding:            0 20px;
+    width:              100%;
+
+    @include media-min-width($media-query-tablet) {
+        display:    flex;
+        flex-flow:  row wrap;
+    }
+
+    @include media-min-width($media-query-desk-sm) {
+        padding: 0 80px;
+    }
+
+    @include media-min-width($media-query-desk-lg) {
+        padding: 0 calc((100% - 1280px) / 2);
+    }
+
+    .lh-dropdown-arrow {
+        display:                inline-block;
+        margin-left:            6px;
+        width:                  9px;
+        height:                 5px;
+        background-image:       url("#{$img-path}chevron.svg");
+        background-position:    0 0;
+        background-repeat:      no-repeat;
+        background-size:        contain;   
+        cursor:                 pointer;
+    }
+
+    .sub-menu {
+        display:            none;
+        width:              100%;
+        flex-flow:          column wrap;
+        align-items:        flex-start;
+        justify-content:    center;
+        padding:            0 20px;
+        padding-top:        110px;
+        padding-bottom:     80px;
+        gap:                25px 50px;
+        list-style:         none;
+    
+        @include media-min-width($media-query-tablet) {
+            flex-flow: row wrap;
+        }
+    
+        @include media-min-width($media-query-desk-sm) {
+            position:   absolute;
+            gap:        20px;
+            padding:    20px;
+            background: $neutral-surface-main-white;
+        }
+    }
+
+    li > a {
+        color:          $typographic-main-black;
+        text-transform: uppercase;
+    }
+
+    .menu-item {
+        & > .menu-item-link {
+            position:           relative;
+            display:            inline-block;
+            text-decoration:    none;
+
+            &::before {
+                content:    ' ';
+                position:   absolute;
+                bottom:     -3px;
+                left:       0;
+                display:    block;
+                width:      0;
+                height:     1px;
+                background: $atlantic-blue-900;
+                transition: all $animation-length;
+            }
+
+            &:hover {
+                text-decoration: none;
+
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .menu-item-has-children {
+        position: relative;
+
+        li {
+            cursor: pointer;
+        }
+
+        &:hover {
+            .sub-menu {
+                @include media-min-width($media-query-desk-sm) {
+                    display:        flex;
+                    flex-direction: column;
+                }
+            }
+
+            .lh-dropdown-arrow {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+}
