@@ -154,10 +154,11 @@ if (!function_exists('lh_render_insight_posts')) {
 
     if (!$select_content_manually && !$recent_posts && !is_singular(['post', 'news']) && $post_type && $category) {
         $base_url = get_pagenum_link(1);
-        $max_page = ceil($posts['all_posts_count'] / $post_per_page);
+        $total_posts = $posts['all_posts_count'];
+        $max_page = ceil($total_posts / $post_per_page);
         $current_page = max(1, get_query_var('paged'));
 
-        if ($max_page > $post_per_page) {
+        if ($total_posts > $post_per_page) {
             lh_print_pagination(
                 $base_url,
                 $max_page,
